@@ -49,22 +49,11 @@ Used for the line chart
 Fetches the top 5 customers  
 `GET /metrics/topCustomers?tenantKey=testTenant`
 
-## Project Structure (Simplified)
-
-src/
-├── components/
-│ ├── SummaryCards.jsx
-│ ├── RevenueChart.jsx
-│ └── TopCustomers.jsx
-├── pages/
-│ └── Dashboard.jsx
-├── App.jsx
-└── main.jsx
-
+## Working of Dashboard.jsx and Components
 
 **Dashboard.jsx**: Fetches all data from backend and passes it to components
   
-Components include SummaryCard, RevenueChart, TopCustomers.
+Components include SummaryCard.jsx, RevenueChart.jsx, TopCustomers.jsx.
 - **SummaryCards.jsx**: Shows high-level metrics  
 - **RevenueChart.jsx**: Visualizes revenue by date  
 - **TopCustomers.jsx**: Displays customer rankings
