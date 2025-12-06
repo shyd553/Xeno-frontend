@@ -1,16 +1,84 @@
-# React + Vite
+This is the frontend for my Xeno Data Ingestion & Insights Assignment.  
+It’s a simple, clean dashboard built using React and Vite that displays insights derived from Shopify data.  
+The goal of the UI is to present the key business metrics in a clear and easy-to-understand format.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployed dashboard:
 
-Currently, two official plugins are available:
+Frontend: https://xeno-frontend-tau.vercel.app  
+Backend API: https://xeno-backend-5e1f.onrender.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What this frontend does
 
-## React Compiler
+The dashboard fetches processed data from the backend and displays:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Total Customers**, **Total Orders** and **Total Revenue** 
+- A revenue-over-time chart using Recharts  
+- A Top Customers table sorted by total spending  
+Everything updates automatically based on the data returned by the backend APIs.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ Tools used:
+
+- **React** – for building the UI  
+- **Vite** – for fast development and optimized builds  
+- **Recharts** – for charts and visualizations  
+- **Axios** – for API requests  
+
+## Environment Setup
+
+The dashboard needs to know where the backend is hosted.  
+For that, I created a `.env` file with:
+VITE_API_URL= https://xeno-backend-5e1f.onrender.com/
+
+Vite exposes this to the app through `import.meta.env`.
+
+## APIs the frontend uses
+
+The frontend calls three backend routes:
+
+### 1. Summary API
+Fetches total customers, orders, and revenue  
+`GET /metrics/summary?tenantKey=testTenant`
+
+### 2. Revenue by Date
+Used for the line chart  
+`GET /metrics/ordersByDate?tenantKey=testTenant`
+
+### 3. Top Customers
+Fetches the top 5 customers  
+`GET /metrics/topCustomers?tenantKey=testTenant`
+
+## Project Structure (Simplified)
+
+src/
+├── components/
+│ ├── SummaryCards.jsx
+│ ├── RevenueChart.jsx
+│ └── TopCustomers.jsx
+├── pages/
+│ └── Dashboard.jsx
+├── App.jsx
+└── main.jsx
+
+
+**Dashboard.jsx**: Fetches all data from backend and passes it to components
+  
+Components include SummaryCard, RevenueChart, TopCustomers.
+- **SummaryCards.jsx**: Shows high-level metrics  
+- **RevenueChart.jsx**: Visualizes revenue by date  
+- **TopCustomers.jsx**: Displays customer rankings
+
+## How to run project
+-npm install
+-npm run dev
+The app will open at:  
+`http://localhost:5173` 
+
+## Deployment
+
+The frontend is deployed on **Vercel**.  
+I connected my GitHub repository, added the environment variable (`VITE_API_URL`), and Vercel handled the build and deployment.
+
+## Author
+**Shubhra Yadav** 
