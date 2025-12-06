@@ -40,14 +40,17 @@ The frontend calls three backend routes:
 ### 1. Summary API
 Fetches total customers, orders, and revenue  
 `GET /metrics/summary?tenantKey=testTenant`
+**link-** https://xeno-backend-5e1f.onrender.com/metrics/summary?tenantKey=testTenant
 
 ### 2. Revenue by Date
 Used for the line chart  
 `GET /metrics/ordersByDate?tenantKey=testTenant`
+**link-**https://xeno-backend-5e1f.onrender.com/metrics/ordersByDate?tenantKey=testTenant
 
 ### 3. Top Customers
 Fetches the top 5 customers  
 `GET /metrics/topCustomers?tenantKey=testTenant`
+**link-** https://xeno-backend-5e1f.onrender.com/metrics/topCustomers?tenantKey=testTenant
 
 ## Working of Dashboard.jsx and Components
 
