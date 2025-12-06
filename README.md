@@ -62,9 +62,9 @@ Components include SummaryCard.jsx, RevenueChart.jsx, TopCustomers.jsx.
 - **TopCustomers.jsx**: Displays customer rankings
 
 ## How to run project
--npm install
--npm run dev
-The app will open at:  
+### -npm install
+### -npm run dev
+### The app will open at:  
 `http://localhost:5173` 
 
 ## Deployment
